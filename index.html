@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>致诗诗 - 爱的告白</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- 配置Tailwind自定义主题 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        love: {
+                            pink: '#FF85A2',
+                            red: '#FF4D6D',
+                            light: '#FFF0F3',
+                            dark: '#C9184A'
+                        }
+                    },
+                    fontFamily: {
+                        cute: ['"Comic Sans MS"', '"Marker Felt"', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'wiggle': 'wiggle 1s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            .heart-beat {
+                animation: heartBeat 1.5s infinite;
+            }
+            .cloud {
+                animation: cloudFloat 20s linear infinite;
+            }
+            .cloud-delay {
+                animation: cloudFloat 25s linear 5s infinite;
+            }
+            .gif-container {
+                transition: transform 0.3s ease;
+            }
+            .gif-container:hover {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes heartBeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.1); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.1); }
+            70% { transform: scale(1); }
+        }
+
+        @keyframes cloudFloat {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100vw); }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-love-light to-white min-h-screen overflow-x-hidden">
+    <!-- 背景装饰云朵 -->
+    <div class="fixed top-10 left-0 w-32 h-16 bg-white/70 rounded-full cloud opacity-50"></div>
+    <div class="fixed top-24 left-0 w-40 h-20 bg-white/70 rounded-full cloud-delay opacity-40"></div>
+
+    <!-- 漂浮爱心装饰 -->
+    <div class="fixed top-1/4 left-10 text-love-red text-3xl animate-bounce-slow opacity-30">
+        <i class="fa fa-heart"></i>
+    </div>
+    <div class="fixed top-1/3 right-20 text-love-pink text-2xl animate-pulse-slow opacity-30">
+        <i class="fa fa-heart"></i>
+    </div>
+    <div class="fixed bottom-1/4 left-1/5 text-love-dark text-xl animate-float opacity-20">
+        <i class="fa fa-heart"></i>
+    </div>
+
+    <!-- 右侧悬浮的动态懒猫GIF -->
+    <div class="fixed right-4 top-1/2 md:left-8 md:top-1/4 z-10 hidden md:block">
+        <div class="gif-container">
+            <img src="./xtxg3.gif"
+                 alt="懒洋洋的猫咪在伸懒腰"
+                 class="w-64 h-auto rounded-xl shadow-lg border-2 border-white">
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 py-12 relative z-10">
+        <!-- 页面标题 -->
+        <header class="text-center mb-12">
+            <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-cute font-bold text-love-dark mb-4 animate-float">
+                致 唐诗怡 女士
+            </h1>
+            <div class="w-32 h-1 bg-love-pink mx-auto rounded-full"></div>
+        </header>
+
+        <!-- 主要内容区 -->
+        <main class="max-w-3xl mx-auto">
+            <!-- 动态线条小狗GIF -->
+            <div class="flex justify-center mb-10">
+                <div class="gif-container">
+                    <img src="./xtxg.gif"
+                         alt="线条小狗在挥手"
+                         class="w-48 h-auto md:w-64 rounded-xl shadow-md">
+                </div>
+            </div>
+
+            <!-- 表白卡片 -->
+            <div class="bg-white rounded-3xl shadow-xl p-8 md:p-12 mb-12 transform transition-all duration-500 hover:shadow-2xl border-2 border-love-pink/30">
+                <div class="text-center mb-6">
+                    <div class="inline-block p-3 bg-love-light rounded-full mb-4">
+                        <i class="fa fa-heart text-love-red text-3xl heart-beat"></i>
+                    </div>
+                    <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-cute text-love-dark mb-6">
+                        我最亲爱的诗诗
+                    </h2>
+
+                    <p class="text-[clamp(1.2rem,4vw,2rem)] font-cute text-gray-700 leading-relaxed mb-8">
+                        有句话，我想郑重地对你说：
+                    </p>
+
+                    <!-- 核心表白语句 -->
+                    <div class="bg-love-light rounded-2xl p-6 md:p-8 mb-8 inline-block transform transition-all duration-300 hover:scale-105">
+                        <p class="text-[clamp(1.5rem,5vw,3rem)] font-cute font-bold text-love-red text-center">
+                            我要跟你爱到100岁
+                        </p>
+                    </div>
+
+                    <p class="text-gray-600 max-w-lg mx-auto">
+                        无论是晴天还是雨天，无论是快乐还是难过，我都想陪在你身边，
+                        一起经历生活的每一个瞬间，直到我们都变成可爱的老爷爷老奶奶。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 底部的可爱小狗GIF -->
+            <div class="flex justify-center mb-12">
+                <div class="gif-container">
+                    <img src="./xtxg2.gif"
+                         alt="可爱的小狗摇尾巴"
+                         class="w-40 h-auto md:w-56 rounded-xl shadow-md">
+                </div>
+            </div>
+
+            <!-- 互动按钮 -->
+            <div class="text-center">
+                <p class="text-gray-600 mb-6">我亲爱的诗诗宝，你愿意吗？</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button id="yesBtn" class="px-8 py-4 bg-love-red text-white rounded-full text-lg font-cute shadow-lg transform transition-all duration-300 hover:bg-love-dark hover:scale-110 focus:outline-none focus:ring-2 focus:ring-love-pink">
+                        <i class="fa fa-heart mr-2"></i>非常愿意
+                    </button>
+                    <button id="noBtn" class="px-8 py-4 bg-gray-200 text-gray-700 rounded-full text-lg font-cute shadow transform transition-all duration-300 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400">
+                        <i class="fa fa-times mr-2"></i>勉强答应
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="mt-20 text-center text-gray-500 text-sm">
+            <p>用全部的爱制作 ❤️</p>
+        </footer>
+    </div>
+
+    <!-- 爱心爆炸效果容器 -->
+    <div id="heartsContainer" class="fixed inset-0 pointer-events-none z-50"></div>
+
+    <script>
+        // "不愿意"按钮的调皮效果
+        const noBtn = document.getElementById('noBtn');
+
+        noBtn.addEventListener('mouseover', () => {
+            // 随机移动按钮位置
+            const maxX = window.innerWidth - noBtn.offsetWidth;
+            const maxY = window.innerHeight - noBtn.offsetHeight;
+
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = `${randomX}px`;
+            noBtn.style.top = `${randomY}px`;
+        });
+
+        // "愿意"按钮的爱心爆炸效果
+        const yesBtn = document.getElementById('yesBtn');
+        const heartsContainer = document.getElementById('heartsContainer');
+
+        yesBtn.addEventListener('click', () => {
+            // 创建100个爱心
+            for (let i = 0; i < 100; i++) {
+                createHeart();
+            }
+
+            // 显示庆祝消息
+            setTimeout(() => {
+                alert('我就知道你会愿意！么么！');
+            }, 500);
+        });
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '<i class="fa fa-heart"></i>';
+            heart.className = 'text-love-red absolute transform -translate-x-1/2 -translate-y-1/2';
+
+            // 随机大小
+            const size = Math.random() * 24 + 12;
+            heart.style.fontSize = `${size}px`;
+
+            // 随机初始位置（屏幕中心附近）
+            const startX = window.innerWidth / 2 + (Math.random() * 100 - 50);
+            const startY = window.innerHeight / 2 + (Math.random() * 100 - 50);
+            heart.style.left = `${startX}px`;
+            heart.style.top = `${startY}px`;
+
+            // 随机颜色
+            const colors = ['#FF4D6D', '#FF85A2', '#C9184A', '#FFB3C1'];
+            heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+
+            // 随机动画
+            const duration = Math.random() * 3 + 2;
+            const delay = Math.random() * 2;
+            const distance = Math.random() * 200 + 100;
+            const angle = Math.random() * Math.PI * 2;
+
+            heart.style.transition = `all ${duration}s ease ${delay}s`;
+
+            heartsContainer.appendChild(heart);
+
+            // 触发动画
+            setTimeout(() => {
+                const endX = startX + Math.cos(angle) * distance;
+                const endY = startY + Math.sin(angle) * distance;
+                heart.style.left = `${endX}px`;
+                heart.style.top = `${endY}px`;
+                heart.style.opacity = '0';
+                heart.style.transform = `translate(-50%, -50%) scale(0.5)`;
+            }, 10);
+
+            // 移除元素
+            setTimeout(() => {
+                heart.remove();
+            }, (duration + delay) * 1000);
+        }
+
+        // 页面加载时的动画效果
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainContent = document.querySelector('main');
+            mainContent.classList.add('opacity-0', 'translate-y-10');
+            mainContent.classList.remove('opacity-0', 'translate-y-10');
+            mainContent.style.transition = 'opacity 1s ease, transform 1s ease';
+            mainContent.style.opacity = '1';
+            mainContent.style.transform = 'translateY(0)';
+        });
+    </script>
+</body>
+</html>
